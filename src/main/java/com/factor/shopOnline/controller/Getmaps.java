@@ -1,7 +1,7 @@
-package com.factor.shopOnline.Controller;
+package com.factor.shopOnline.controller;
 
-import com.factor.shopOnline.Model.Products;
-import com.factor.shopOnline.Service.MainLogic;
+import com.factor.shopOnline.entity.Products;
+import com.factor.shopOnline.service.MainLogic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

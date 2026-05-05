@@ -1,6 +1,6 @@
-package com.factor.shopOnline.Repository;
+package com.factor.shopOnline.repository;
 
-import com.factor.shopOnline.Model.Client;
+import com.factor.shopOnline.entity.Client;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

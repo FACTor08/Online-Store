@@ -1,4 +1,4 @@
-package com.factor.shopOnline.Model;
+package com.factor.shopOnline.entity;
 
 public enum Roles {
     ROLE_RETAILER,

@@ -1,5 +1,4 @@
-package com.factor.shopOnline.Model;
-
+package com.factor.shopOnline.entity;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
@@ -11,8 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @NoArgsConstructor
-
-public class MerchantDTO {
+public class ClientDTO {
     @Email(message = "Invalid email")
     @NotNull(message = "Email is required")
     private String email;

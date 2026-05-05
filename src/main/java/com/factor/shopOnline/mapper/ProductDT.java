@@ -1,8 +1,7 @@
-package com.factor.shopOnline.Component;
+package com.factor.shopOnline.mapper;
 
-import com.factor.shopOnline.Model.ProductsDTO;
-import com.factor.shopOnline.Model.Products;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.factor.shopOnline.entity.ProductsDTO;
+import com.factor.shopOnline.entity.Products;
 import org.springframework.stereotype.Component;
 
 @Component

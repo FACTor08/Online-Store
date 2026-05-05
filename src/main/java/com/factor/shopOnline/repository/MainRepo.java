@@ -1,6 +1,6 @@
-package com.factor.shopOnline.Repository;
+package com.factor.shopOnline.repository;
 
-import com.factor.shopOnline.Model.Products;
+import com.factor.shopOnline.entity.Products;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

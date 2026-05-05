@@ -1,9 +1,9 @@
-package com.factor.shopOnline.Service;
+package com.factor.shopOnline.service;
 
-import com.factor.shopOnline.Component.ClientDT;
-import com.factor.shopOnline.Model.Client;
-import com.factor.shopOnline.Model.ClientDTO;
-import com.factor.shopOnline.Repository.ClientRepo;
+import com.factor.shopOnline.mapper.ClientDT;
+import com.factor.shopOnline.entity.Client;
+import com.factor.shopOnline.entity.ClientDTO;
+import com.factor.shopOnline.repository.ClientRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

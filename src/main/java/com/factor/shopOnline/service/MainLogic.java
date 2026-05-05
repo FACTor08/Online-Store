@@ -1,9 +1,9 @@
-package com.factor.shopOnline.Service;
+package com.factor.shopOnline.service;
 
-import com.factor.shopOnline.Component.ProductDT;
-import com.factor.shopOnline.Model.Products;
-import com.factor.shopOnline.Model.ProductsDTO;
-import com.factor.shopOnline.Repository.MainRepo;
+import com.factor.shopOnline.mapper.ProductDT;
+import com.factor.shopOnline.entity.Products;
+import com.factor.shopOnline.entity.ProductsDTO;
+import com.factor.shopOnline.repository.MainRepo;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

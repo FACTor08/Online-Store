@@ -1,4 +1,4 @@
-package com.factor.shopOnline.Model;
+package com.factor.shopOnline.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

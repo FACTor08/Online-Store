@@ -1,7 +1,6 @@
-package com.factor.shopOnline.Repository;
+package com.factor.shopOnline.repository;
 
-import com.factor.shopOnline.Model.Merchant;
-import jakarta.validation.constraints.NotNull;
+import com.factor.shopOnline.entity.Merchant;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

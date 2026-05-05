@@ -1,4 +1,4 @@
-package com.factor.shopOnline.Model;
+package com.factor.shopOnline.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;

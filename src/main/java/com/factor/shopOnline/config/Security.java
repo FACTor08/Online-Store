@@ -1,8 +1,8 @@
-package com.factor.shopOnline.Configuration;
+package com.factor.shopOnline.config;
 
 
-import com.factor.shopOnline.Service.ClientLogic;
-import com.factor.shopOnline.Service.MerchantLogic;
+import com.factor.shopOnline.service.ClientLogic;
+import com.factor.shopOnline.service.MerchantLogic;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;

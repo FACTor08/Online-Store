@@ -1,9 +1,9 @@
-package com.factor.shopOnline.Service;
+package com.factor.shopOnline.service;
 
-import com.factor.shopOnline.Component.MerchantDT;
-import com.factor.shopOnline.Model.Merchant;
-import com.factor.shopOnline.Model.MerchantDTO;
-import com.factor.shopOnline.Repository.MerchantRepo;
+import com.factor.shopOnline.mapper.MerchantDT;
+import com.factor.shopOnline.entity.Merchant;
+import com.factor.shopOnline.entity.MerchantDTO;
+import com.factor.shopOnline.repository.MerchantRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

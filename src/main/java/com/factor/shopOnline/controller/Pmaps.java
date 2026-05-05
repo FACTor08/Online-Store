@@ -1,11 +1,11 @@
-package com.factor.shopOnline.Controller;
+package com.factor.shopOnline.controller;
 
-import com.factor.shopOnline.Model.ClientDTO;
-import com.factor.shopOnline.Model.MerchantDTO;
-import com.factor.shopOnline.Model.ProductsDTO;
-import com.factor.shopOnline.Service.ClientLogic;
-import com.factor.shopOnline.Service.MainLogic;
-import com.factor.shopOnline.Service.MerchantLogic;
+import com.factor.shopOnline.entity.ClientDTO;
+import com.factor.shopOnline.entity.MerchantDTO;
+import com.factor.shopOnline.entity.ProductsDTO;
+import com.factor.shopOnline.service.ClientLogic;
+import com.factor.shopOnline.service.MainLogic;
+import com.factor.shopOnline.service.MerchantLogic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;

@@ -1,8 +1,8 @@
-package com.factor.shopOnline.Component;
+package com.factor.shopOnline.mapper;
 
-import com.factor.shopOnline.Model.Merchant;
-import com.factor.shopOnline.Model.MerchantDTO;
-import com.factor.shopOnline.Model.Roles;
+import com.factor.shopOnline.entity.Merchant;
+import com.factor.shopOnline.entity.MerchantDTO;
+import com.factor.shopOnline.entity.Roles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
