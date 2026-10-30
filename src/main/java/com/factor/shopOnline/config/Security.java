@@ -1,32 +1,22 @@
 package com.factor.shopOnline.config;
 
 
-import com.factor.shopOnline.service.ClientLogic;
-import com.factor.shopOnline.service.MerchantLogic;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
 @EnableWebSecurity
+@RequiredArgsConstructor
 public class Security {
-    @Bean
-    public UserDetailsService loadUserByUsername(MerchantLogic merchantLogic, ClientLogic clientLogic){
-        return username -> {
-            try{
-            return merchantLogic.loadUserByUsername(username);
-            } catch (UsernameNotFoundException ignored) {
-            }return clientLogic.loadUserByUsername(username);
-        };
-    }
+    private final JwtFilter filter;
 
     @Bean
     public PasswordEncoder passwordEncoder(){return new BCryptPasswordEncoder();
@@ -38,12 +28,22 @@ public class Security {
             .csrf(AbstractHttpConfigurer::disable)
             .authorizeHttpRequests(auth -> auth
                     .requestMatchers("/addStock").hasRole("RETAILER")
-                    .requestMatchers("/update/*").hasRole("RETAILER")
+                    .requestMatchers("/admin/update").hasRole("RETAILER")
+                    .requestMatchers("/update-product").hasRole("RETAILER")
+                    .requestMatchers("/client/update/{*}").hasRole("CLIENT")
+                    .requestMatchers("/client/update/user_handle").hasRole("CLIENT")
                     .requestMatchers("/SignUp").permitAll()
                     .requestMatchers("/MerchantSignUp").permitAll()
-                    //admin registration to avoid easy application from any random user
-                    .anyRequest().authenticated())
-            .httpBasic(Customizer.withDefaults())
+                    .requestMatchers("/login").permitAll()
+                    .requestMatchers("/error").permitAll()
+                    .requestMatchers("/v3/api-docs",
+                    "/v3/api-docs/**",
+                    "/swagger-ui/**",
+                    "/swagger-ui.html").permitAll()
+
+                    .anyRequest()
+                    .authenticated())
+            .addFilterBefore(filter, UsernamePasswordAuthenticationFilter.class)
             .build();
 
 
