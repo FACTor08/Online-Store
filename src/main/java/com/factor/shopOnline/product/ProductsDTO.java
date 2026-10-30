@@ -1,4 +1,4 @@
-package com.factor.shopOnline.entity;
+package com.factor.shopOnline.product;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,9 +8,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class ProductsDTO {
-    private int availableUnits;
+    private Integer availableUnits;
     private String category;
     private String description;
-    private double price;
+    private Double price;
     private String product;
 }
