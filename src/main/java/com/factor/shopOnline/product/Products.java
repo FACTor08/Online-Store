@@ -1,4 +1,4 @@
-package com.factor.shopOnline.entity;
+package com.factor.shopOnline.product;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -13,12 +13,12 @@ public class Products {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Lob
-    private byte[] productImage;
-    private int availableUnits;
+
+    private String productImage;
+    private String imageId;
+    private Integer availableUnits;
     private String category;
     private String description;
-    private double price;
+    private Double price;
     private String product;
-    private String imageType;
 }
