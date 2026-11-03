@@ -71,10 +71,10 @@ public class ProductService {
 
      Products key = repo.findByProductIgnoreCase(item)
              .orElseThrow(() -> new ProductNotFoundException("no product found"));
-                    if (product.getPrice() != 0) {
+                    if (product.getPrice() != null) {
                         key.setPrice(product.getPrice());
                     }
-                    if (product.getAvailableUnits() != 0) {
+                    if (product.getAvailableUnits() != null) {
                         key.setAvailableUnits(product.getAvailableUnits());
                     }
                     if (product.getCategory() != null) {
