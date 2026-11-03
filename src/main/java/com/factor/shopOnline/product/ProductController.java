@@ -34,13 +34,13 @@ public class ProductController {
         ProductResponseDTO update = logic.updateProduct(item, data);
         return ResponseEntity.ok(update);
     }
-    @GetMapping("/store")
+    @GetMapping("/home")
     public ResponseEntity<List<ProductResponseDTO>> home(){
         List<ProductResponseDTO> products = logic.getProducts();
         return ResponseEntity.ok(products);
     }
 
-    @GetMapping("/store/search")
+    @GetMapping("/home/search")
     public ResponseEntity<ProductResponseDTO> search(@RequestParam(required = false) String category,
                                                      @RequestParam(required = false) String product){
         ProductResponseDTO results = logic.getByCategoryOrProduct(category,product);
