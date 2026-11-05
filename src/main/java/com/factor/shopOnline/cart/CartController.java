@@ -25,9 +25,9 @@ public class CartController {
         return ResponseEntity.ok(response);
     }
     @PatchMapping("updateCart")
-    public ResponseEntity<CartResponse> updateCart(Authentication auth, @RequestBody CartRequest cartRequest) {
+    public ResponseEntity<CartResponse> updateQuantity(Authentication auth, @RequestBody CartRequest cartRequest) {
         String username = auth.getName();
-        CartResponse response = cartLogic.updateCart(username, cartRequest);
+        CartResponse response = cartLogic.updateQuantity(username, cartRequest);
         return ResponseEntity.ok(response);
     }
     @DeleteMapping("/remove_from_cart")

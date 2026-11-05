@@ -71,16 +71,13 @@ public class CartLogic {
         return getCart(user);
     }
 
-    public CartResponse updateCart(String user, CartRequest cartRequest) {
+    public CartResponse updateQuantity(String user, CartRequest cartRequest) {
         log.info("updating {} in {} cart", cartRequest.product(),user);
         Products products = productRepo.findByProductIgnoreCase(cartRequest.product())
                 .orElseThrow(() -> new IllegalArgumentException("Product not available"));
 
         Cart update = cartRepo.findByUserAndProductId(user, products.getId())
                 .orElseThrow(() -> new IllegalArgumentException("Cart is empty"));
-    if(cartRequest.product() != null){
-        update.setProduct(products);
-    }
     if (cartRequest.quantity() == 0 || cartRequest.quantity() < 0 || cartRequest.product() == null) {
         update.setQuantity(cartRequest.quantity());
     }
