@@ -34,7 +34,7 @@ public class CartLogic {
             throw new IllegalArgumentException("Quantity out of stock");
         }
         if (newQty > products.getAvailableUnits()){
-            throw new IllegalArgumentException("Only" + products.getAvailableUnits() + " available units left");
+            throw new IllegalArgumentException(products.getProduct() + " is out of stock");
         }
         items.setQuantity(newQty);
         log.info("{} was added to {} cart", cartRequest.product(), user);
@@ -55,18 +55,18 @@ public class CartLogic {
         double total = cart.stream().mapToDouble(CartContent::grandTotal).sum();
         return CartResponse.builder().items(cart).total(total).build();
     }
-    public CartResponse deleteCart(String user, CartRequest cartRequest) {
+    public CartResponse removeFromCart(String user, CartRequest cartRequest) {
         log.info("removing {} from {} cart", cartRequest.product(),user);
         Products products = productRepo.findByProductIgnoreCase(cartRequest.product())
                 .orElseThrow(() -> new IllegalArgumentException("Product not available"));
 
-        Cart delete = cartRepo.findByUserAndProductId(user, products.getId())
+        Cart remove= cartRepo.findByUserAndProductId(user, products.getId())
                 .orElseThrow(() -> new IllegalArgumentException("Cart is empty"));
 
-        int newQty = delete.getQuantity() - cartRequest.quantity();
-        delete.setQuantity(newQty);
+        int newQty = remove.getQuantity() - cartRequest.quantity();
+        remove.setQuantity(newQty);
         log.info("{} was removed from {} cart", cartRequest.product(), user);
-                cartRepo.delete(delete);
+                cartRepo.delete(remove);
 
         return getCart(user);
     }
@@ -86,5 +86,12 @@ public class CartLogic {
     }
     cartRepo.save(update);
     return getCart(user);
+    }
+    public CartResponse emptyCart(String user) {
+        Cart delete = cartRepo.findByUser(user)
+                .orElseThrow(() -> new IllegalArgumentException("User has no existing cart"));
+        cartRepo.delete(delete);
+
+        return getCart(user);
     }
 }
