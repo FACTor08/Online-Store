@@ -30,10 +30,16 @@ public class CartController {
         CartResponse response = cartLogic.updateCart(username, cartRequest);
         return ResponseEntity.ok(response);
     }
-    @DeleteMapping("/Remove")
+    @DeleteMapping("/remove_from_cart")
     public ResponseEntity<CartResponse> removeFromCart(Authentication auth, @RequestBody CartRequest cartRequest) {
         String username = auth.getName();
-        CartResponse response = cartLogic.deleteCart(username, cartRequest);
+        CartResponse response = cartLogic.removeFromCart(username, cartRequest);
+        return ResponseEntity.ok(response);
+    }
+    @DeleteMapping("/empty_cart")
+    public ResponseEntity<CartResponse> emptyCart(Authentication auth) {
+        String username = auth.getName();
+        CartResponse response = cartLogic.emptyCart(username);
         return ResponseEntity.ok(response);
     }
 }
